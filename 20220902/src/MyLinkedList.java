@@ -28,7 +28,13 @@ public class MyLinkedList {
         l2.next = l3;
         l3.next = l4;
         l4.next = l5;
-        this.last = l5.next;
+
+        l2.prev = l1;
+        l3.prev = l2;
+        l4.prev = l3;
+        l5.prev = l4;
+
+        this.last = l5;
     }
     public void display(){
         ListNote cur = this.head;
