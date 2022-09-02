@@ -20,10 +20,9 @@ public class Test {
         l1.creatList();
         l1.display();
         int a = l1.size();
-        System.out.println(a);
-        ListNote q1 = l1.searchTndex(3);
-        System.out.println(q1.val);
-        l1.addIndex(3,90);
+        System.out.print("链表长度是： "+a);
+        System.out.println();
+        l1.addIndex(5,90);
         l1.display();
     }
 }
