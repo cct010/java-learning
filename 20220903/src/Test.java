@@ -9,6 +9,8 @@ public class Test {
     public static void main(String[] args) {
         Dog dog = new Dog();
         dog.name = "hh";
+        dog.len = 10;
+        dog.run();
         dog.eat();
         Bird bird = new Bird();
         bird.name = "ff";
