@@ -14,6 +14,9 @@
 }
 class Dog extends Animal{
      public int len;
+     public void run(){
+         System.out.println(name+" is run "+len);
+     }
 
 }
 class Bird extends Animal{
