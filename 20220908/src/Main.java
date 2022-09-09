@@ -1,3 +1,8 @@
+import book.BookList;
+import user.AdminUser;
+import user.NormalUser;
+import user.User;
+
 import java.util.Scanner;
 
 /**
@@ -8,38 +13,26 @@ import java.util.Scanner;
  * Time: 19:47
  */
 public class Main {
-    public static void menu(int x){
-        switch (x){
-            case 1:
-                System.out.println("============欢迎来到图书馆=========");
-                System.out.println("1.查找图书");
-                System.out.println("2.新增图书");
-                System.out.println("3.删除图书");
-                System.out.println("4.显示图书");
-                System.out.println("0.退出系统");
-                System.out.println("=================================");
-                break;
-            case 0:
-                System.out.println("============欢迎来到图书馆=========");
-                System.out.println("1.查找图书");
-                System.out.println("2.借阅图书");
-                System.out.println("3.归还图书");
-                System.out.println("0.退出系统");
-                System.out.println("=================================");
-                break;
-            default:break;
-        }
-
-    }
-    public static void main(String[] args) {
+    public static User login(){
         System.out.println("请输入你的名字：");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         System.out.println("请输入你的身份：1：管理员；0：普通用户");
         int select = scanner.nextInt();
-        menu(select);
-        int select1 = scanner.nextInt();
-        System.out.println(select1);
+        if(select == 1){
+            return new AdminUser(name);
+        }
+        else{
+            return new NormalUser(name);
+        }
+    }
+    public static void main(String[] args) {
+        BookList bookList = new BookList();
+        User user = login();
+        while (true){
+            int select = user.menu();
+            user.doWork(select,bookList);
+        }
 
     }
 }
