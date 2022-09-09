@@ -25,4 +25,11 @@ public class BookList {
         bookList[2] = new Book("红楼梦","曹雪芹",29,"小说");
         this.usedSize = 3;
     }
+    public Book getPos(int pos){
+        //获取到pos位置的一本书
+        return this.bookList[pos];
+    }
+    public void setBook(int pos,Book book){
+        this.bookList[pos] = book;
+    }
 }
