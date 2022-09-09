@@ -1,6 +1,9 @@
 package operation;
 import book.Book;
 import book.BookList;
+
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  * Description
@@ -9,5 +12,6 @@ import book.BookList;
  * Time: 19:26
  */
 public interface IOperation {
+    Scanner scanner = new Scanner(System.in);
     void work(BookList bookList);
 }
