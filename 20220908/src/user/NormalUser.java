@@ -17,9 +17,8 @@ public class NormalUser extends User{
         this.iOperations = new IOperation[]{
                 new ExitOperation(),
                 new FindOperation(),
-                new AddOperation(),
-                new DelOperation(),
-                new DisplayOperation()
+                new BorrowOperation(),
+                new ReturnOperation()
         };
     }
 
