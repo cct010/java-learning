@@ -30,9 +30,8 @@ public class Main {
         BookList bookList = new BookList();
         User user = login();
         while (true){
-            int select = user.menu();
+            int select = user.menu();//动态绑定，多态
             user.doWork(select,bookList);
         }
-
     }
 }
