@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // 注意 hasNext 和 hasNextLine 的区别
-        while (in.hasNextInt()) { // 注意 while 处理多个 case
+        while (in.hasNextInt()) {
             int a = in.nextInt();
             int b = in.nextInt();
             Base h =new Sub();
@@ -24,9 +24,7 @@ public class Main {
 class Base {
     int x;
     int y;
-    public void getX(int x){
-        this.x =x;
-    }
+
     public void get(int x,int y){
         this.y = y;
         this.x =x;
@@ -41,10 +39,7 @@ class Base {
 
 }
 class Sub extends Base{
-    //public void getX(int x){
-    //   this.x = x*10+y;
-    //this.y =y;
-    // }
+
     public Sub(){
         super();
     }
