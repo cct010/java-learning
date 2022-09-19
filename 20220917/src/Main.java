@@ -5,7 +5,9 @@
  * Date: 2022-09-17
  * Time: 20:33
  */
+import java.util.List;
 import java.util.Scanner;
+import java.util.*;
 
 // 注意类名必须为 Main, 不要有任何 package xxx 信息
 public class Main {
@@ -52,3 +54,47 @@ class Sub extends Base{
         return c;
     }
 }
+/*
+class Employee {
+    public:
+    int id;
+    int importance;
+    vector<int> subordinates;
+};
+class Solution {
+    //方法1：普通递归，思路最简单，一看到题目就能想到
+    public int getImportance(List<Employee> employees, int id) {
+        for (Employee e: employees) {
+            if (e.id == id) {
+                if (e.subordinates.size() == 0) {  // 没有子结点
+                    return e.importance;
+                }
+                for (int subId: e.subordinates) {
+                    e.importance += getImportance(employees, subId);
+                }
+                return e.importance;
+            }
+        }
+        return 0;
+    }
+    */
+
+    /* 方法2：递归 + Map优化  每次递归时都遍历employees进行线性查找，可用map存储employee进行查询优化
+    public int getImportance(List<Employee> employees, int id) {
+        Map<Integer, Employee> map = new HashMap<>();
+        for (Employee e: employees) {
+            map.put(e.id, e);
+        }
+        return getImportanceHelper(map, id);
+    }
+
+    public int getImportanceHelper(Map<Integer, Employee> map, int id) {
+        Employee employee = map.get(id);
+        for (int subId: employee.subordinates) {
+            employee.importance += getImportanceHelper(map, subId);
+        }
+        return employee.importance;
+    }
+    */
+
+//}
