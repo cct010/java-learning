@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created with IntelliJ IDEA.
  * Description
@@ -139,5 +142,31 @@ public class BinaryTree {
             return ret;
         }
         return null;
+    }
+    //判断一棵树是不是完全二叉树
+    boolean isCompleteTree(BTNode root){
+        if (root==null){
+            return true;
+        }
+        Queue<BTNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            BTNode cur = queue.poll();
+            if (cur!=null){
+                queue.offer(cur.left);
+                queue.offer(cur.right);
+            }
+            else {
+                break;
+            }
+        }
+        while (!queue.isEmpty()){
+            BTNode top = queue.peek();
+            if(top!=null){
+                return false;
+            }
+            queue.poll();
+        }
+        return true;
     }
 }
