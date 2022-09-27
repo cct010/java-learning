@@ -26,5 +26,11 @@ public class Main {
         System.out.println(btNode1.val);
         boolean b1 = binaryTree.isCompleteTree(btNode);
         System.out.println("btNode是否是完全二叉树？"+b1);
+        BTNode btNode2 = binaryTree.createTree1();
+        System.out.println("\nbtNode与btNode2是否是相同的：");
+        boolean b2 = binaryTree.isSameTree(btNode,btNode2);
+        System.out.println(b2);
+        System.out.println("btNode是否包含btNode2：");
+        System.out.println(binaryTree.isSubtree(btNode,btNode2));
     }
 }
