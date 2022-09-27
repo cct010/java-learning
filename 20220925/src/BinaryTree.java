@@ -36,6 +36,24 @@ public class BinaryTree {
         E.right = H;
         return A;
     }
+    public BTNode createTree1(){
+        BTNode A = new BTNode('A');
+        BTNode B = new BTNode('B');
+        BTNode C = new BTNode('C');
+        BTNode D = new BTNode('D');
+        BTNode E = new BTNode('E');
+        BTNode F = new BTNode('F');
+        BTNode G = new BTNode('G');
+        BTNode H = new BTNode('H');
+        A.left = B;
+        A.right = C;
+        B.left = D;
+        B.right = E;
+        C.left = F;
+        C.right = G;
+        E.left = H;
+        return A;
+    }
     //前序遍历
     void preOrder(BTNode root){
         if(root == null){
@@ -168,5 +186,31 @@ public class BinaryTree {
             queue.poll();
         }
         return true;
+    }
+    //判断两棵树是否是相同的
+    public boolean isSameTree(BTNode p,BTNode q){
+        if((p!=null&&q==null)||(p==null&&q!=null)){
+            return false;
+        }
+        if (q==null&&p==null){
+            return true;
+        }
+        if(q.val!=p.val){
+            return false;
+        }
+        return isSameTree(q.left,p.left)&&isSameTree(p.right,q.right);
+    }
+    //一棵树是否是另一棵树的子、
+    public boolean isSubtree(BTNode root,BTNode subRoot){
+        if(isSameTree(root,subRoot)){
+            return true;
+        }
+        if (isSameTree(root.left, subRoot)) {
+            return true;
+        }
+        if (isSameTree(root.right, subRoot)) {
+            return true;
+        }
+        return false;
     }
 }
