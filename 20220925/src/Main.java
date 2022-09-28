@@ -32,5 +32,6 @@ public class Main {
         System.out.println(b2);
         System.out.println("btNode是否包含btNode2：");
         System.out.println(binaryTree.isSubtree(btNode,btNode2));
+        System.out.println("btNode是否是平衡二叉树："+binaryTree.isBalanced(btNode));
     }
 }
