@@ -200,7 +200,7 @@ public class BinaryTree {
         }
         return isSameTree(q.left,p.left)&&isSameTree(p.right,q.right);
     }
-    //一棵树是否是另一棵树的子、
+    //一棵树是否是另一棵树的子树
     public boolean isSubtree(BTNode root,BTNode subRoot){
         if(isSameTree(root,subRoot)){
             return true;
@@ -212,5 +212,25 @@ public class BinaryTree {
             return true;
         }
         return false;
+    }
+    //平衡二叉树
+    public int height(BTNode root){
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        if (Math.abs(leftHeight-rightHeight)>=1&&leftHeight>=0&&rightHeight>=0){
+            return Math.max(leftHeight,rightHeight)+1;
+        }
+        else {
+            return -1;
+        }
+    }
+    public boolean isBalanced(BTNode root){
+        if (root == null){
+            return true;
+        }
+        return height(root)>=0;
     }
 }
