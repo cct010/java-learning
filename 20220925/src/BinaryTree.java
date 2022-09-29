@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Created with IntelliJ IDEA.
@@ -232,5 +233,69 @@ public class BinaryTree {
             return true;
         }
         return height(root)>=0;
+    }
+    //二叉树的最近公共祖先
+    public boolean getPath(BTNode root, BTNode node, Stack<BTNode> stack){
+        if (root == null||node == null){
+            return false;
+        }
+        stack.push(root);
+        if (root == node){
+            return true;
+        }
+        boolean flg = getPath(root.left,node,stack);
+        if (flg == true){
+            return true;
+        }
+        flg = getPath(root.right,node,stack);
+        if (flg == true){
+            return true;
+        }
+        stack.pop();
+        return false;
+    }
+    public BTNode lowstCommonAncestor(BTNode root,BTNode p,BTNode q){
+        if (root == null){
+            return null;
+        }
+        Stack<BTNode> stack1 = new Stack<>();
+        getPath(root,p,stack1);
+        Stack<BTNode> stack2 = new Stack<>();
+        getPath(root,q,stack2);
+        int size1 = stack1.size();
+        int size2 = stack2.size();
+        if(size1>size2){
+            int size = size1-size2;
+            while(size!=0){
+                stack1.pop();
+                size--;
+            }
+            while (!stack1.isEmpty()&&!stack2.isEmpty()){
+                if(stack1.peek()==stack2.peek()){
+                    return stack1.pop();
+                }
+                else {
+                    stack1.pop();
+                    stack2.pop();
+                }
+            }
+        }
+        else{
+            int size = size2-size1;
+            while(size!=0){
+                stack2.pop();
+                size--;
+            }
+            while (!stack1.isEmpty()&&!stack2.isEmpty()){
+                if(stack1.peek()==stack2.peek()){
+                    return stack2.pop();
+                }
+                else {
+                    stack1.pop();
+                    stack2.pop();
+                }
+            }
+        }
+        return  null;
     }
 }
