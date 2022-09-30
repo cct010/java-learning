@@ -36,5 +36,8 @@ public class Main {
         BTNode b = new BTNode('D');
         BTNode c = new BTNode('E');
         System.out.println("btNode中p,q的最近公共节点是："+binaryTree.lowstCommonAncestor(btNode,b,c));
+        int[] a1= {1,2,4,5,7,3,6,8};
+        int[] a2 = {4,2,7,5,1,3,8,6};
+
     }
 }
