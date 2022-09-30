@@ -17,6 +17,14 @@ class BTNode{
         this.val = val;
     }
 }
+class BTNode1{
+    public int val;
+    public BTNode1 left;
+    public BTNode1 right;
+    public BTNode1(int val) {
+        this.val = val;
+    }
+}
 public class BinaryTree {
     public BTNode root;
     public BTNode createTree(){
@@ -297,5 +305,35 @@ public class BinaryTree {
             }
         }
         return  null;
+    }
+    //根据一棵树的前序遍历和中序遍历构造二叉树
+    public int preIndex = 0;
+    public BTNode1 createTreeByPandI(int[] preorder,int[] inorder,int inbegin,int inend){
+        if(inbegin>inend){
+            return null;
+        }
+        BTNode1 root = new BTNode1(preorder[preIndex]);
+        int rootIndex = findIndexOf(inorder,inbegin,inend,preorder[preIndex]);
+        if(rootIndex == -1){
+            return null;
+        }
+        preIndex++;
+        root.left = createTreeByPandI(preorder,inorder,inbegin,rootIndex-1);
+        root.right = createTreeByPandI(preorder,inorder,rootIndex+1,inend);
+        return root;
+    }
+    private int findIndexOf(int[] inorder,int inbegin,int inend,int key){
+        for (int i = inbegin;i<= inend;i++){
+            if(inorder[i] == key){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public BTNode1 buildTree(int[] preorder,int[] inorder){
+        if(preorder == null ||inorder == null){
+            return null;
+        }
+        return createTreeByPandI(preorder,inorder,0,inorder.length-1);
     }
 }
