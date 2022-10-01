@@ -33,11 +33,5 @@ public class Main {
         System.out.println("btNode是否包含btNode2：");
         System.out.println(binaryTree.isSubtree(btNode,btNode2));
         System.out.println("btNode是否是平衡二叉树："+binaryTree.isBalanced(btNode));
-        BTNode b = new BTNode('D');
-        BTNode c = new BTNode('E');
-        System.out.println("btNode中p,q的最近公共节点是："+binaryTree.lowstCommonAncestor(btNode,b,c));
-        int[] a1= {1,2,4,5,7,3,6,8};
-        int[] a2 = {4,2,7,5,1,3,8,6};
-
     }
 }
