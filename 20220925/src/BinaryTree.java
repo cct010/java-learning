@@ -306,6 +306,7 @@ public class BinaryTree {
         }
         return  null;
     }
+
     //根据一棵树的前序遍历和中序遍历构造二叉树
     public int preIndex = 0;
     public BTNode1 createTreeByPandI(int[] preorder,int[] inorder,int inbegin,int inend){
@@ -336,4 +337,5 @@ public class BinaryTree {
         }
         return createTreeByPandI(preorder,inorder,0,inorder.length-1);
     }
+
 }
