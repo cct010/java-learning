@@ -33,5 +33,16 @@ public class Main {
         System.out.println("btNode是否包含btNode2：");
         System.out.println(binaryTree.isSubtree(btNode,btNode2));
         System.out.println("btNode是否是平衡二叉树："+binaryTree.isBalanced(btNode));
+        BTNode1 btNode3 = binaryTree.createTree2();
+        System.out.println("\n前序：");
+        binaryTree.preOrder1(btNode3);
+        System.out.println("\n中序：");
+        binaryTree.inOrder1(btNode3);
+        int[] btNode3pre = {1,2,4,5,8,3,6,7};
+        int[] btNode3in = {4,2,8,5,1,6,3,7};
+        System.out.println("\n构建一棵树->");
+        System.out.println("后序遍历输出：");
+        BTNode1 b3 =  binaryTree.buildTree(btNode3pre,btNode3in);
+        binaryTree.postOrder1(b3);
     }
 }
