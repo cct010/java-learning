@@ -63,6 +63,24 @@ public class BinaryTree {
         E.left = H;
         return A;
     }
+    public BTNode1 createTree2(){
+        BTNode1 A = new BTNode1(1);
+        BTNode1 B = new BTNode1(2);
+        BTNode1 C = new BTNode1(3);
+        BTNode1 D = new BTNode1(4);
+        BTNode1 E = new BTNode1(5);
+        BTNode1 F = new BTNode1(6);
+        BTNode1 G = new BTNode1(7);
+        BTNode1 H = new BTNode1(8);
+        A.left = B;
+        A.right = C;
+        B.left = D;
+        B.right = E;
+        C.left = F;
+        C.right = G;
+        E.left = H;
+        return A;
+    }
     //前序遍历
     void preOrder(BTNode root){
         if(root == null){
@@ -337,5 +355,30 @@ public class BinaryTree {
         }
         return createTreeByPandI(preorder,inorder,0,inorder.length-1);
     }
-
+    public void preOrder1(BTNode1 root){
+        if(root == null){
+            return;
+        }
+        System.out.print(root.val+" ");
+        preOrder1(root.left);
+        preOrder1(root.right);
+    }
+    //中序遍历
+    void inOrder1(BTNode1 root){
+        if(root == null){
+            return;
+        }
+        inOrder1(root.left);
+        System.out.print(root.val+" ");
+        inOrder1(root.right);
+    }
+    //后序遍历
+    void postOrder1(BTNode1 root){
+        if (root == null){
+            return;
+        }
+        postOrder1(root.left);
+        postOrder1(root.right);
+        System.out.print(root.val+" ");
+    }
 }
