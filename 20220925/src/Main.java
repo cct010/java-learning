@@ -44,5 +44,6 @@ public class Main {
         System.out.println("后序遍历输出：");
         BTNode1 b3 =  binaryTree.buildTree(btNode3pre,btNode3in);
         binaryTree.postOrder1(b3);
+        
     }
 }
