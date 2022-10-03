@@ -381,4 +381,69 @@ public class BinaryTree {
         postOrder1(root.right);
         System.out.print(root.val+" ");
     }
+    //二叉树的最近公共祖先
+    public boolean getPath1(BTNode1 root, BTNode1 node, Stack<BTNode1> stack){
+        if (root == null||node == null){
+            return false;
+        }
+        stack.push(root);
+        if (root == node){
+            return true;
+        }
+        boolean flg = getPath1(root.left,node,stack);
+        if (flg == true){
+            return true;
+        }
+        flg = getPath1(root.right,node,stack);
+        if (flg == true){
+            return true;
+        }
+        stack.pop();
+        return false;
+    }
+    public BTNode1 lowstCommonAncestor1(BTNode1 root,BTNode1 p,BTNode1 q){
+        if (root == null){
+            return null;
+        }
+        Stack<BTNode1> stack1 = new Stack<>();
+        getPath1(root,p,stack1);
+        Stack<BTNode1> stack2 = new Stack<>();
+        getPath1(root,q,stack2);
+        int size1 = stack1.size();
+        int size2 = stack2.size();
+        if(size1>size2){
+            int size = size1-size2;
+            while(size!=0){
+                stack1.pop();
+                size--;
+            }
+            while (!stack1.isEmpty()&&!stack2.isEmpty()){
+                if(stack1.peek()==stack2.peek()){
+                    return stack1.pop();
+                }
+                else {
+                    stack1.pop();
+                    stack2.pop();
+                }
+            }
+        }
+        else{
+            int size = size2-size1;
+            while(size!=0){
+                stack2.pop();
+                size--;
+            }
+            while (!stack1.isEmpty()&&!stack2.isEmpty()){
+                if(stack1.peek()==stack2.peek()){
+                    return stack2.pop();
+                }
+                else {
+                    stack1.pop();
+                    stack2.pop();
+                }
+            }
+        }
+        return  null;
+    }
+
 }
