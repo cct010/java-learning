@@ -60,7 +60,7 @@ public class BinaryTree {
         B.right = E;
         C.left = F;
         C.right = G;
-        E.left = H;
+        E.right = H;
         return A;
     }
     public BTNode1 createTree2(){
