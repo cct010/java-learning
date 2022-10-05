@@ -17,6 +17,7 @@ class BTNode{
         this.val = val;
     }
 }
+//二叉树
 class BTNode1{
     public int val;
     public BTNode1 left;
@@ -25,6 +26,7 @@ class BTNode1{
         this.val = val;
     }
 }
+
 public class BinaryTree {
     public BTNode root;
     public BTNode createTree(){
