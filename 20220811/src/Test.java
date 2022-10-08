@@ -17,10 +17,6 @@ public class Test {
             }
         }
         return 1;
-        //if(j>Math.sqrt(n)){
-        //    return 1;
-            //System.out.println(n+"是素数！");
-        //}
     }
     public static void main(String[] args) {
        int sum=0;
@@ -31,7 +27,6 @@ public class Test {
             }
             i++;
         }
-
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int ret = numAdd(n);
