@@ -34,6 +34,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
+        System.out.println("请输入要画的x行数：");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int i,j,k;
