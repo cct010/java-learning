@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,9 +12,16 @@ public class Main {
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
         BTNode btNode = binaryTree.createTree();
-        System.out.print("前序遍历输出：");
+        System.out.print("前序遍历输出（递归）：");
         binaryTree.preOrder(btNode);
-        System.out.print("\n后序遍历输出：");
+        System.out.println();
+        System.out.print("前序遍历输出（非递归）：");
+        binaryTree.preOrderNor(btNode);
+        System.out.println();
+        System.out.print("前序遍历输出（非递归）：");
+        List<Character> list =  binaryTree.preOrderNor1(btNode);
+        System.out.println(list);
+        System.out.print("后序遍历输出：");
         binaryTree.postOrder(btNode);
         int count = binaryTree.size(btNode);
         System.out.println("\n二叉树的长度："+count);
