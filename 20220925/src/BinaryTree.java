@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -109,6 +107,73 @@ public class BinaryTree {
         postOrder(root.left);
         postOrder(root.right);
         System.out.print(root.val+" ");
+    }
+    //前序遍历 非递归方法
+    void preOrderNor(BTNode root){
+        Stack<BTNode> stack = new Stack<>();
+        BTNode cur = root;
+        while(cur!= null || !stack.isEmpty()){
+            while (cur!=null) {
+                stack.push(cur);
+                System.out.print(cur.val + " ");
+                cur = cur.left;
+            }
+            BTNode top = stack.pop();
+            cur = top.right;
+        }
+    }
+    List<Character> preOrderNor1(BTNode root){
+        List<Character> ret = new ArrayList<>();
+        Stack<BTNode> stack = new Stack<>();
+        BTNode cur = root;
+        while(cur!= null || ! stack.isEmpty()){
+            while (cur!=null) {
+                stack.push(cur);
+                //System.out.print(cur.val + " ");
+                ret.add(cur.val);
+                cur = cur.left;
+            }
+            BTNode top = stack.pop();
+            cur = top.right;
+        }
+        return ret;
+    }
+    //中序遍历 非递归方法
+    void inOrderNor(BTNode root){
+        Stack<BTNode> stack = new Stack<>();
+        BTNode cur = root;
+        while(cur!= null || !stack.isEmpty()){
+            while (cur!=null) {
+                stack.push(cur);
+
+                cur = cur.left;
+            }
+            BTNode top = stack.pop();
+            System.out.print(top.val + " ");
+            cur = top.right;
+        }
+    }
+    //后序遍历 非递归·
+    List<Character> postOrderNor(BTNode root){
+        List<Character> ret = new ArrayList<>();
+        Stack<BTNode> stack = new Stack<>();
+        BTNode cur = root;
+        BTNode prev = null;
+        while(cur!= null || ! stack.isEmpty()){
+            while (cur!=null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            BTNode top = stack.peek();
+            //如果当前右子树结点打印过或遍历过就直接弹出
+            if (top.right == null || top.right == prev){
+                stack.pop();
+                ret.add(top.val);
+            }else {
+                cur = cur.right;//记录最近一次打印节点
+            }
+        }
+        return ret;
     }
     //获取树中结点个数 遍历方式
     int count = 0;
