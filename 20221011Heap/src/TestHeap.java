@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -46,6 +47,45 @@ public class TestHeap {
         int tmp = array[i];
         array[i]=array[j];
         array[j]=tmp;
+    }
+    //入队 向上调整
+    public boolean isFull(){
+        return usedSize == elem.length;
+    }
+    public void off(int val){
+        if (isFull()){
+            //扩容
+            elem = Arrays.copyOf(elem,2*elem.length);
+        }
+        elem[usedSize++]=val;
+        shiftUp(usedSize-1);
+    }
+    private void shiftUp(int child){
+        int parent = (child-1)/2;
+        while(child>0){
+            if (elem[child]>elem[parent]){
+                swap(elem,parent,child);
+                child =parent;
+                parent = (child-1)/2;
+            }
+            else {
+                break;
+            }
+        }
+    }
+    //出队
+    public boolean isEmpty(){
+        return usedSize == 0;
+    }
+    public int poll(){
+        if (isEmpty()){
+            throw new RuntimeException("队列为空");
+        }
+        int tmp = elem[0];
+        swap(elem,0,usedSize-1);
+        usedSize--;
+        shiftDown(0,usedSize);
+        return tmp;
     }
 
 
