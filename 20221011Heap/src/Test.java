@@ -51,5 +51,14 @@ public class Test {
             System.out.print(array1[x]+" ");
         }
         //System.out.println(Arrays.toString(array1));
+        System.out.println("\n堆出队：");
+        TestHeap testHeap = new TestHeap();
+        testHeap.off(12);
+        testHeap.off(45);
+        testHeap.off(6);
+        testHeap.off(77);
+        int t = testHeap.poll();
+        System.out.println(t);
+
     }
 }
