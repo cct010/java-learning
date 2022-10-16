@@ -22,6 +22,7 @@ public class Sort {
             array[j+1]=tmp;
         }
     }
+    
     //希尔排序
     public static void shell(int[] array,int gap){
         for (int i =0;i<array.length;i++){
@@ -54,7 +55,7 @@ public class Sort {
         for (int x:array){
             System.out.print(x+" ");
         }
-        
+
         System.out.println("\n希尔排序：");
         shellSort(array1);
         for (int x:array1){
