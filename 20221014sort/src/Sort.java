@@ -22,7 +22,7 @@ public class Sort {
             array[j+1]=tmp;
         }
     }
-    
+
     //希尔排序
     public static void shell(int[] array,int gap){
         for (int i =0;i<array.length;i++){
@@ -47,6 +47,33 @@ public class Sort {
         }
         shell(array,1);
     }
+    //选择排序
+    public static void selectSort(int[] array) {
+        for(int i =0;i<array.length;i++){
+            for (int j=i+1;j<array.length;j++){
+                if(array[j]<array[i]){
+                    swap(array,i,j);
+                }
+            }
+        }
+    }
+    public static void swap(int[] array,int i,int j){
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+    //优化选择排序
+    public static void selectSort1(int[] array){
+        for(int i =0;i<array.length;i++){
+            int minIndex = i;
+            for(int j = i+1;j<array.length;j++){
+                if (array[j]<array[minIndex]){
+                        minIndex = j;
+                }
+            }
+            swap(array,i,minIndex);
+        }
+    }
     public static void main(String[] args) {
         int[] array ={12,23,45,76,98,90,34,52,61};
         int[] array1 ={12,23,45,76,98,90,34,52,61};
@@ -59,6 +86,12 @@ public class Sort {
         System.out.println("\n希尔排序：");
         shellSort(array1);
         for (int x:array1){
+            System.out.print(x+" ");
+        }
+        int[] array2 ={122,213,455,776,908,910,314,562,691};
+        System.out.println("\n选择排序：");
+        selectSort1(array2);
+        for (int x:array2){
             System.out.print(x+" ");
         }
     }
