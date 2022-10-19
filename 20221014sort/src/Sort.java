@@ -22,7 +22,6 @@ public class Sort {
             array[j+1]=tmp;
         }
     }
-
     //希尔排序
     public static void shell(int[] array,int gap){
         for (int i =0;i<array.length;i++){
@@ -74,6 +73,22 @@ public class Sort {
             swap(array,i,minIndex);
         }
     }
+    //优化冒泡排序
+    public static void bubbleSort(int[] array){
+        for (int i=0;i<array.length-1;i++){
+            boolean isSort = true;
+            for (int j=0;j<array.length-i-1;j++){
+                int tmp = 0;
+                if(array[j+1]<array[j]){
+                    swap(array,j,j+1);
+                    isSort = false;
+                }
+            }
+            if(isSort){
+                break;
+            }
+        }
+    }
     public static void main(String[] args) {
         int[] array ={12,23,45,76,98,90,34,52,61};
         int[] array1 ={12,23,45,76,98,90,34,52,61};
@@ -82,10 +97,6 @@ public class Sort {
         for (int x:array){
             System.out.print(x+" ");
         }
-
-
-
-        
         System.out.println("\n希尔排序：");
         shellSort(array1);
         for (int x:array1){
@@ -95,6 +106,12 @@ public class Sort {
         System.out.println("\n选择排序：");
         selectSort1(array2);
         for (int x:array2){
+            System.out.print(x+" ");
+        }
+        int[] array3 ={122,213,455,776,908,910,314,562,691};
+        System.out.println("\n优化冒泡排序：");
+        bubbleSort(array3);
+        for (int x:array3){
             System.out.print(x+" ");
         }
     }
