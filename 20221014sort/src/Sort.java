@@ -89,6 +89,33 @@ public class Sort {
             }
         }
     }
+    //鸡尾酒排序
+    public static void bubbleSort1(int[] array){
+        for (int i=0;i<array.length/2;i++){
+            boolean isSort = true;
+            for (int j=i;j<array.length-i-1;j++){
+                //int tmp = 0;
+                if(array[j+1]<array[j]){
+                    swap(array,j,j+1);
+                    isSort = false;
+                }
+            }
+            if(isSort){
+                break;
+            }
+            isSort = true;
+            for (int j=array.length-i-1;j>i;j--){
+                //int tmp = 0;
+                if(array[j-1]>array[j]){
+                    swap(array,j,j-1);
+                    isSort = false;
+                }
+            }
+            if(isSort){
+                break;
+            }
+        }
+    }
     public static void main(String[] args) {
         int[] array ={12,23,45,76,98,90,34,52,61};
         int[] array1 ={12,23,45,76,98,90,34,52,61};
@@ -112,6 +139,12 @@ public class Sort {
         System.out.println("\n优化冒泡排序：");
         bubbleSort(array3);
         for (int x:array3){
+            System.out.print(x+" ");
+        }
+        int[] array4 ={122,213,455,776,908,910,314,562,691};
+        System.out.println("\n鸡尾酒排序：");
+        bubbleSort1(array4);
+        for (int x:array4){
             System.out.print(x+" ");
         }
     }
