@@ -116,7 +116,6 @@ public class Sort {
             }
         }
     }
-    
     public static void main(String[] args) {
         int[] array ={12,23,45,76,98,90,34,52,61};
         int[] array1 ={12,23,45,76,98,90,34,52,61};
@@ -142,11 +141,12 @@ public class Sort {
         for (int x:array3){
             System.out.print(x+" ");
         }
-        int[] array4 ={122,213,455,776,908,910,314,562,691};
+        int[] array4 ={12,13,45,76,98,91,34,56,61};
         System.out.println("\n鸡尾酒排序：");
         bubbleSort1(array4);
         for (int x:array4){
             System.out.print(x+" ");
         }
+
     }
 }
