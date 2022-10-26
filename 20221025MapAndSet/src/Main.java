@@ -23,6 +23,7 @@ public class Main {
         }
         return  map;
     }
+    
     public static void main(String[] args) {
         int[] array = new int[100];
         Random random = new Random();
