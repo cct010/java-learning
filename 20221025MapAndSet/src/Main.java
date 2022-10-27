@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,7 +21,6 @@ public class Main {
         }
         return  map;
     }
-    
     public static void main(String[] args) {
         int[] array = new int[100];
         Random random = new Random();
@@ -32,5 +29,7 @@ public class Main {
         }
         Map<Integer,Integer> map = func1(array);
         System.out.println(map);
+
+        
     }
 }
