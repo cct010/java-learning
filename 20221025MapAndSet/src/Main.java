@@ -30,6 +30,7 @@ public class Main {
         Map<Integer,Integer> map = func1(array);
         System.out.println(map);
 
+
         
     }
 }
