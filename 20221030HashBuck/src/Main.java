@@ -12,5 +12,11 @@ public class Main {
         HashBuck2<Person,String> hashBuck2 = new HashBuck2<>();
         hashBuck2.put(person1,"hello");
         System.out.println(hashBuck2.get(person2));
+        HashBuck hashBuck = new HashBuck();
+        hashBuck.put(23,12);
+        hashBuck.put(12,1);
+        hashBuck.put(3,12);
+        System.out.println(hashBuck.get(3));
+
     }
 }
