@@ -17,5 +17,6 @@ public class Main {
         hashBuck.put(12,1);
         hashBuck.put(3,12);
         System.out.println(hashBuck.get(3));
+        
     }
 }
