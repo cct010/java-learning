@@ -46,6 +46,5 @@ public class Main {
         Student student = new Student();
         Class<?> c3 = student.getClass();
         System.out.println(c3.equals(c2));
-        
     }
 }
